@@ -30,7 +30,4 @@ def solution(citations):
     return answer
 
 
-
-
-
-solution([3, 0, 6, 1, 5])
+print(solution([3, 0, 6, 1, 5]))

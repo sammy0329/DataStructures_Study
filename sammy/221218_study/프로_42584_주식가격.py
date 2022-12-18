@@ -18,4 +18,4 @@ def solution(prices):
         
     return answer
 
-print(solution([1, 2, 3, 2, 3]))
+# print(solution([1, 2, 3, 2, 3]))
