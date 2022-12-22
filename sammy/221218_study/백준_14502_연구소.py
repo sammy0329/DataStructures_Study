@@ -1,9 +1,8 @@
 import sys,copy
 from itertools import combinations
 from collections import deque
-from heapq import heappop,heappush
 
-# dfs 구현
+# dfs로 탐색
 def dfs(x,y):
     maps_[x][y] = 2
     
@@ -25,7 +24,6 @@ maps=list()
 for _ in range(N):
     maps.append(list(map(int,sys.stdin.readline().rstrip().split())))
 
-
 # 상하좌우 움직임 처리
 dx=[1,-1,0,0]
 dy=[0,0,1,-1]
@@ -43,7 +41,6 @@ for i in range(N):
         elif maps[i][j]==0:
             zeros.append([i,j])
 
- 
             
 # 3개의 벽이 세워질 수 있는 경우의 수 모두 구하기
 zeros_combi = combinations(zeros, 3)
@@ -66,8 +63,7 @@ for combi in zeros_combi:
             if maps_[row][col] == 0:
                 result += 1
 
-    heappush(answer,(-result,result))
+    answer.append(result)
     
-print(heappop(answer)[1])
-    
+print(max(answer))
     
