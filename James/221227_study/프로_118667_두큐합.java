@@ -7,7 +7,7 @@ class Solution {
         Queue<Integer> secondQueue = new LinkedList<>();
         long firstQueueSum = 0, secondQueueSum = 0;
         long halfTotal;
-        int maxCount = queue1.length * 3; // 교체할 수 있는 최대 횟수
+        int maxCount = queue1.length * 3;
         int count = 0;
         
         for(int i = 0; i < queue1.length; i++) {
