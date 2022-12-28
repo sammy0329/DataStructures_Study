@@ -1,7 +1,6 @@
 import sys
 from collections import deque
 
-
 input=sys.stdin.readline
 M,N=map(int,input().split())
 
@@ -31,14 +30,14 @@ while q:
         if nx<0 or nx>=M or ny<0 or ny>=N:
             continue
         
-        if visited[nx][ny] == -1:
-            if maps[nx][ny] == 0:
-                q.appendleft((nx,ny))
-                visited[nx][ny]=visited[x][y]
+        if visited[nx][ny] == -1: # 방문을 아직 안했을 경우
+            if maps[nx][ny] == 0: # 지나갈 수 있으면
+                q.appendleft((nx,ny)) # 먼저 처리할 수 있도록 leftappend
+                visited[nx][ny]=visited[x][y] # 벽을 부수지 않았으므로 visited[x][y]에 해당하는 값 저장
             
             else:
-                visited[nx][ny]=visited[x][y]+1
-                q.append((nx,ny))
+                visited[nx][ny]=visited[x][y]+1 # 벽을 부쉈으므로 visited[x][y] + 1에 해당하는 값 저장
+                q.append((nx,ny)) # 벽을 부수지 않고 가는 경우가 먼저 큐에 들어와 방문 처리 되기 때문에 벽을 부수고 도착한 경우를 무시 가능
                 
 print(visited[N-1][M-1])
             
