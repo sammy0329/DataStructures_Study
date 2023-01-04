@@ -10,7 +10,7 @@ def dfs(graph, start):
             visit.extend(graph[node])
     
     return result     
-
+ 
 def solution(n, computers):
     answer = 0
 
