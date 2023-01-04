@@ -7,7 +7,6 @@ def solution(brown, yellow):
             if (total//i)*2+(i-2)*2 == brown: # 둘레의 길이는 (total//i)*2+(i-2)*2
                 answer=[total//i,i]   
                 break 
-
     
     return answer
 
