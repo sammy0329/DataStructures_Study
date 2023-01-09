@@ -2,14 +2,29 @@
 from itertools import product 
 
 def solution(users, emoticons):
-    answer = []
+    answer=[]
     all_cases=[]
+    talk=0
+    money=0
     
     for i in product([10,20,30,40], repeat=len(emoticons)):
         all_cases.append(i)
+    
+    for user in users:    
+        total=0
         
-    print(all_cases)
-        
+        for check in all_cases:
+            for idx,sale in enumerate(check):
+                if sale>=user[0]:
+                    total+=(100-sale)*0.01*emoticons[idx]
+
+        if total >= user[1]:
+            talk+=1
+        else:
+            money+=total
+    
+    print(talk,money)
+                               
     return answer
 
-solution([[40, 10000], [25, 10000]],[7000, 9000])
+print(solution([[40, 10000], [25, 10000]],[7000, 9000]))
