@@ -2,9 +2,6 @@ import java.util.*;
 
 class Solution {
     public boolean primeNumber(long number) {
-        if(number == 1)
-            return false;
-        
         if(number == 2)
             return true;
         
@@ -25,7 +22,7 @@ class Solution {
         int cnt = 0;
         
         for(String s : changedNumArray) {
-            if(s.equals(""))
+            if(s.equals("") || s.equals("1"))
                 continue;
             
             long number = Long.parseLong(s);
