@@ -6,7 +6,7 @@ def solution(word):
     items=["A","E","I","O","U"]
     all_data=[]
 
-    for i in range(1,6): # 모든 중복 조합 경우의수 따지기
+    for i in range(1,6): # 모든 중복 순열 경우의수 따지기
         all_data.extend(list(product(items,repeat=i)))
 
     all_data.sort() # 오름차순 정렬
