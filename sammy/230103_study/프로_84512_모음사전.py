@@ -16,4 +16,4 @@ def solution(word):
 
     return answer
 
-print(solution("AAAAE"))
+# print(solution("AAAAE"))
