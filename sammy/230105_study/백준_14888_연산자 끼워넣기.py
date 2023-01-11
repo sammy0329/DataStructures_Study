@@ -46,5 +46,5 @@ for check in allCases: # 모든 경우의 수 하나씩 판단
     dataset.append(total)
 
 # 최대 최솟값 찾기
-print(max(dataset))
-print(min(dataset))
+# print(max(dataset))
+# print(min(dataset))
