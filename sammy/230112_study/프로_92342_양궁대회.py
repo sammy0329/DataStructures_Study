@@ -1,14 +1,14 @@
-
+# 도전중..
 
 def solution(n, info):
     answer = []
     win= []
+    
+    
     for i in range(11):
         win.append(info[i]+1)
     
 
-                
-    
     return answer
 
 print(solution(5,[2,1,1,1,0,0,0,0,0,0,0])) # [0,2,2,0,1,0,0,0,0,0,0]
