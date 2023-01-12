@@ -23,6 +23,7 @@ def solution(citations):
         # 그리고 그 외 나머지 즉, index가 mid 번 이상일 때 end를 mid-1로 줄임
         if n-index<mid or index>mid:
             end=mid-1
+            
         else: # 문제 조건에 맞을 경우 최댓값을 구해야하므로 answer에 저장하고 start를 늘려 계속 구해본다.
             answer=mid
             start=mid+1
@@ -30,7 +31,7 @@ def solution(citations):
     return answer
 
 
-
-
-
-solution([3, 0, 6, 1, 5])
+print(solution([3, 0, 6, 1, 5]))
+print(solution([0, 0, 0, 0, 0]))
+print(solution([6, 6, 5, 3, 1, 0]))
+print(solution([10,10,10,10,10]))
