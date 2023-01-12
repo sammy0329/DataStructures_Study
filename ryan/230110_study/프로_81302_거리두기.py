@@ -70,4 +70,5 @@ def solution(places):
         else:
             answer.append(1)
 
+
     return answer
