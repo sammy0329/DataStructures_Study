@@ -19,7 +19,8 @@ def solution(citations):
     return answer
 
 
-citations = [3, 0, 6, 1, 5]
+# citations = [3, 0, 6, 1, 5]
+citations = [6,6,5,3,1,0]
 # citations = [4, 4, 4]
 # citations = [10, 10, 10, 10, 10]
 
