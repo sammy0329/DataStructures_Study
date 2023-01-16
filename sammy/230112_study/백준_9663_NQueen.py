@@ -19,6 +19,7 @@ def backTracking(n,queencount,x,y):
         visited[x][y]=True
         nx,ny=0,0
         i=0
+        
         while True:
             i+=1
             nx=x+dx[i]
