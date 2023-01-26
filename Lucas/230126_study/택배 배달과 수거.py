@@ -6,7 +6,7 @@ def solution(cap, n, deliveries, pickups):
 
     deli = 0
     pick = 0
-
+    ddd = 0
     for i in range(n):
         deli += deliveries[i]
         pick += pickups[i]
