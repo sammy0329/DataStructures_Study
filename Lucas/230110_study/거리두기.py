@@ -11,7 +11,7 @@ def solution(places):
         dx =[1,-1,0,0]
         dy = [0,0,1,-1]
         
-        queue = deque([])
+        queue = deque()
         
         x = 0
         y = 0
@@ -60,6 +60,4 @@ def solution(places):
     answer = [bfs(places[0]),bfs(places[1]),bfs(places[2]),bfs(places[3]),bfs(places[4])]
     
     return answer
-# %%
-"2"+"1"
 # %%
