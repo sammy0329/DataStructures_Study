@@ -50,4 +50,4 @@ def solution(expression):
     return max(answer)
 
 #%%
-solution("100-200*300-500+20")
+solution("100-200*300*500+20")
