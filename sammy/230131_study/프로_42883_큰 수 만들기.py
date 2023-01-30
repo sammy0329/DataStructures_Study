@@ -15,9 +15,9 @@
 
 def solution(number, k):
     answer=''
-    length=len(number)
+    max_index=len(number)-1
     for idx,data in enumerate(number):
-        if length-idx>=k and 
+        if max_index-idx>=k and 
         
     
     
