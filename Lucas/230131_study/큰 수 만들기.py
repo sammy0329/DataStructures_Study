@@ -29,4 +29,3 @@ def solution(number, k):
     return answer
 #%%
 solution("4321", 1)
-# %%

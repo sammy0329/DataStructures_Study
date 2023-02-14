@@ -6,7 +6,7 @@ check = []
 answer = []
 q = ""
 for i in n:
-    if(i == "-" or i == "+" or i == "*"):
+    if(i == "-" or i == "+"):
         queue.append(int(q))
         queue.append(i)
         
