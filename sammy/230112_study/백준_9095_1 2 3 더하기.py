@@ -1,7 +1,6 @@
 import sys
 
-def backTracking(n,total):
-    
+def backTracking(n,total):    
     global count
     
     if total>n: return # total 값이 n보다 클 경우 종료 조건

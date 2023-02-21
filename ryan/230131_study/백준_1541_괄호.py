@@ -14,9 +14,3 @@ for idx, each in enumerate(equation):
         sumValue -= strCalculater(each)
 
 print(sumValue)
-
-"""
-50-(30+30+30)-(30+30)
-50/30+30+30/30+30
-"""
-
