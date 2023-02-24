@@ -24,6 +24,7 @@ while start<end:
     if result>=abs(check):
         result=abs(check)
         case=(data[start],data[end])
+        
     # check 값이 음수이면 start+=1 , 양수이면 end-=1 진행 후 다시 이분탐색
     if check < 0:
         start+=1
