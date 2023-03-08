@@ -1,4 +1,3 @@
-#%%
 from collections import deque
 def solution(maps):#레버까지 최단거리 찾고 그다음에 출구까지 최단거리를 찾자
     answer = 0
@@ -19,7 +18,7 @@ def solution(maps):#레버까지 최단거리 찾고 그다음에 출구까지 �
         if('E' in maps[i]):
 
             end = (i,maps[i].index("E"))
-        
+
     def bfs(start,end):
         
         visited = [[200 for j in range(len(maps[i]))] for i in range(len(maps))]
@@ -53,6 +52,7 @@ def solution(maps):#레버까지 최단거리 찾고 그다음에 출구까지 �
     answer = bfs(start,lever)+ bfs(lever,end)
     if(answer >= 200):
         answer = -1
+        
     return answer
 
 solution(["SOOOL","XXXXO","OOOOO","OXXXX","OOOOE"])
