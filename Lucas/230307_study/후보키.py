@@ -1,3 +1,4 @@
+#%%
 from itertools import combinations
 def solution(relation):
     answer = []
@@ -11,7 +12,7 @@ def solution(relation):
 
     for i in a:
         tmp = [tuple([item[key] for key in i]) for item in relation]
-        print(tmp)
+        
         if(len(set(tmp)) == row):#유일성 검사
             put = True
             
@@ -27,3 +28,5 @@ def solution(relation):
 
 solution([["100","ryan","music","2"],["200","apeach","math","2"],["300","tube","computer","3"],["400","con","computer","4"],["500","muzi","music","3"],["600","apeach","music","2"]])
 
+
+# %%
