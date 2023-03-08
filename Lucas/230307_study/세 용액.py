@@ -1,4 +1,3 @@
-# %%
 N = int(input())
 
 liquid = list(map(int,input().split(" ")))
@@ -30,7 +29,8 @@ def binary_search(x,y,liquid):
 ans = [-10000000000,0,0]
 
 x=0
-y=0 
+y=0
+
 while True:
     if(x == len(liquid)-1):
         break
@@ -45,5 +45,3 @@ while True:
         ans = result
 
 print(*ans)
-
-# %%
