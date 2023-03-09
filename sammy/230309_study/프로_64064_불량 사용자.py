@@ -1,7 +1,7 @@
-from collections import defaultdict
+from itertools import product
 
 def solution(user_id, banned_id):
-    answer = 1
+    answer = []
     dataset=dict()
 
     for checkIdx,checkId in enumerate(banned_id):
@@ -16,18 +16,19 @@ def solution(user_id, banned_id):
             else:
                 data.add(userId)
 
-        dataset[checkId]=[len(data),data]
+        dataset[checkIdx]=data
 
     check=dataset.values()
+    print(check)
+    all_cases=list(product(*check))
+    print(all_cases)
+    for case in all_cases:
+        if len(set(case))==len(case):
+            if set(case) not in answer:
+                answer.append(set(case))
 
-    for idx,val in enumerate(banned_id):
-        max_idx=idx
-
-        for i in range(idx+1,len(banned_id)):
-            if len(dataset[val]) == len(dataset[val].intersection(dataset[banned_id[i]])): continue
-
-    return answer
+    return len(answer)
 
 print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "abc1**"]),2)
-print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["*rodo", "*rodo", "******"]),2)
-print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******", "******"]),3)
+# print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["*rodo", "*rodo", "******"]),2)
+# print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******", "******"]),3)

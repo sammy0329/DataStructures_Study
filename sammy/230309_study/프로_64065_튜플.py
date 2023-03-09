@@ -1,3 +1,4 @@
+# eval 함수 활용하면 문자열에 해당하는 값 리스트로도 바꿔주기도함 !! 
 def solution(s):
     answer = []
 
@@ -31,7 +32,7 @@ def solution(s):
 
     while s_list:
         popdata=s_list.pop(0)
-        answer.append(list(popdata - before)[0])
+        answer.append((popdata - before).pop())
         before=popdata
         
 
