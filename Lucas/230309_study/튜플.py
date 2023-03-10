@@ -1,3 +1,4 @@
+#%%
 def solution(s):
     answer = []
     #문자열로 제공된 값을 리스트에 담는다.
@@ -5,6 +6,7 @@ def solution(s):
     s = s.replace("}"," ")
     s = s.split(" ")
     set_list = []
+    print(s)
 
     for i in s:
         if i == "" or i == ",":
@@ -28,4 +30,9 @@ def solution(s):
         
         
     return answer
+
+solution("{{2},{2,1},{2,1,3},{2,1,3,4}}")
+# %%
+a= [1,2,2,3]
+set(a)
 # %%
