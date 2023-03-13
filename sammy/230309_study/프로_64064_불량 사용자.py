@@ -19,9 +19,9 @@ def solution(user_id, banned_id):
         dataset[checkIdx]=data
 
     check=dataset.values()
-    print(check)
+  
     all_cases=list(product(*check))
-    print(all_cases)
+   
     for case in all_cases:
         if len(set(case))==len(case):
             if set(case) not in answer:
@@ -30,5 +30,5 @@ def solution(user_id, banned_id):
     return len(answer)
 
 print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "abc1**"]),2)
-# print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["*rodo", "*rodo", "******"]),2)
-# print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******", "******"]),3)
+print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["*rodo", "*rodo", "******"]),2)
+print(solution(["frodo", "fradi", "crodo", "abc123", "frodoc"], ["fr*d*", "*rodo", "******", "******"]),3)
