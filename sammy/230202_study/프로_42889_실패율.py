@@ -19,7 +19,7 @@ def solution(N, stages):
                 stages.pop()
                 
             stage_list.append((stage,cnt/stages_length))
-            print(stage,cnt/stages_length,cnt,stages_length,stages)
+
         else:
             stage_list.append((stage,0))
 
