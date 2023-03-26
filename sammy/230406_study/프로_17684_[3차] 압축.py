@@ -14,7 +14,10 @@ def solution(msg):
             data[check]=cnt
             cnt+=1
             answer.append(data[check[:-1]])
-            check=''
+            check=check[-1]
+
+    if check:
+        answer.append(data[check])
             
 
     return answer
