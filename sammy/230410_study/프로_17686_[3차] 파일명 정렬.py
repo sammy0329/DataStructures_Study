@@ -5,6 +5,7 @@ def solution(files):
     # re를 통해 숫자로 split 진행하여 answer에 append 
     for file in files:
         split_file=re.split(r'([0-9]+)',file)
+        print(split_file)
         answer.append(split_file)
     
     # 모두 소문자로 변경 후 sort 진행 후, 숫자로 한번 더 sort 진행
