@@ -2,9 +2,11 @@ def solution(n, arr1, arr2):
     answer = []
 
     for i in range(n):
+        # 2진법으로 변환
         arr1_bin=bin(arr1[i])[2:]
         arr2_bin=bin(arr2[i])[2:]
 
+        # 앞에 0을 붙여준다.
         arr1_bin=arr1_bin.zfill(n)
         arr2_bin=arr2_bin.zfill(n)
 
