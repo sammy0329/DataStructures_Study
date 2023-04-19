@@ -27,15 +27,32 @@ def count_alive(boards: List) -> int:
 
 
 def solution(boards: List, skill: List) -> int:
+    ROW_SIZE = len(boards)
+    COL_SIZE = len(boards[0])
+
+    accumulate = [[0 for _ in range(COL_SIZE+1)] for _ in range(ROW_SIZE+1)]
+
     for turn in skill:
         type_, row_start, col_start, row_end, col_end, degree = turn
 
-        sign = -1 if type_ == 1 else 1
+        effect = (-1) * degree if type_ == 1 else degree
 
-        for row in range(row_start, row_end+1):
-            for col in range(col_start, col_end+1):
+        accumulate[row_start][col_start] += effect
+        accumulate[row_start][col_end + 1] += (-1) * effect
+        accumulate[row_end + 1][col_start] += (-1) * effect
+        accumulate[row_end + 1][col_end + 1] += effect
 
-                boards[row][col] += (degree * sign)
+    for i in range(ROW_SIZE):
+        for j in range(COL_SIZE):
+            accumulate[i][j+1] += accumulate[i][j]
+
+    for i in range(COL_SIZE):
+        for j in range(ROW_SIZE):
+            accumulate[j+1][i] += accumulate[j][i]
+
+    for i in range(ROW_SIZE):
+        for j in range(COL_SIZE):
+            boards[i][j] += accumulate[i][j]
 
     return count_alive(boards)
 
