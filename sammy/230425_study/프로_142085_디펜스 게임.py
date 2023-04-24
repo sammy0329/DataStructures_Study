@@ -1,4 +1,5 @@
 from heapq import heappush,heappop
+
 def solution(n, k, enemy):
     heapq = []
     maxStage=0
@@ -8,7 +9,6 @@ def solution(n, k, enemy):
         n-=enemy_cnt
      
         maxStage+=1
-        # print("n= ",n,"k= ",k,"maxStage= ",maxStage)
 
         if n<0:
             if k<=0:
@@ -17,14 +17,12 @@ def solution(n, k, enemy):
             minus_k=0
 
             for i in range(k):
-                minus_k+=1
-                
+                minus_k+=1       
                 pop_enemy_cnt=heappop(heapq)*-1
                 n+=pop_enemy_cnt
-                # print(minus_k,n,pop_enemy_cnt)
-                if n>0:
+                
+                if n>=0:
                     k-=minus_k
-                    # print("n= ",n,"k= ",k,"maxStage= ",maxStage)
                     break
                 
             else:
