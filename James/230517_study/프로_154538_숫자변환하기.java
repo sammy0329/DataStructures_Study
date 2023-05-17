@@ -1,3 +1,4 @@
+/*dp 풀이*/
 import java.util.*;
 
 class Solution {
@@ -32,5 +33,54 @@ class Solution {
         }
                 
         return dp[y] < max ? dp[y] : -1;
+    }
+}
+
+/* bfs 풀이 */
+class Solution {
+    public int bfs(HashSet<Integer> hs, Queue<Integer> queue, int x, int y, int n) {
+        int cnt = 0;
+        queue.add(x);
+        
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            
+            for(int i = 0; i < size; i++) {
+                int data = queue.poll();
+                
+                if(data == y) {
+                    return cnt;
+                }
+                
+                if(data * 2 <= y && !hs.contains(data * 2)) {
+                    hs.add(data * 2);
+                    queue.add(data * 2);
+                } 
+                
+                if(data * 3 <= y && !hs.contains(data * 3)) {
+                    hs.add(data * 3);
+                    queue.add(data * 3);
+                } 
+                
+                if(data + n <= y && !hs.contains(data + n)) {
+                    hs.add(data + n);
+                    queue.add(data + n);
+                }
+            }
+            
+            cnt++;
+        }
+        
+        return -1;
+    }
+    
+    public int solution(int x, int y, int n) {
+        int answer;
+        HashSet<Integer> hs = new HashSet<>();
+        Queue<Integer> queue = new LinkedList<>();
+        
+        answer = bfs(hs, queue, x, y, n);
+        
+        return answer;
     }
 }
