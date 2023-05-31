@@ -1,14 +1,5 @@
 def changeShap(music): # "#"이 붙은 음을 소문자로 변환하는 함수
-    if 'A#' in music:
-        music = music.replace('A#', 'a')
-    if 'F#' in music:
-        music = music.replace('F#', 'f')
-    if 'C#' in music:
-        music = music.replace('C#', 'c')
-    if 'G#' in music:
-        music = music.replace('G#', 'g')
-    if 'D#' in music:
-        music = music.replace('D#', 'd')
+    music = music.replace('A#', 'a').replace('F#', 'f').replace('C#', 'c').replace('G#', 'g').replace('D#', 'd')
     return music
 
 def solution(m, musicinfos):
