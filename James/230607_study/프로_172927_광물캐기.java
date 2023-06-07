@@ -65,4 +65,53 @@
 //         return answer;
 //     }
 // }
+import java.util.*;
 
+class Solution {
+    public int solution(int[] picks, String[] minerals) {
+        int answer = 0;
+        int picksNumber = picks[0] + picks[1] + picks[2];
+        int[][] sliceMinerals = new int[minerals.length / 5 + 1][3];
+        
+        for(int i = 0; i < minerals.length && picksNumber > 0; i++) {
+            if(minerals[i].equals("diamond")) {
+                sliceMinerals[i / 5][0] += 1;
+                sliceMinerals[i / 5][1] += 5;
+                sliceMinerals[i / 5][2] += 25;
+            } else if(minerals[i].equals("iron")) {
+                sliceMinerals[i / 5][0] += 1;
+                sliceMinerals[i / 5][1] += 1;
+                sliceMinerals[i / 5][2] += 5;
+            } else if(minerals[i].equals("stone")) {
+                sliceMinerals[i / 5][0] += 1;
+                sliceMinerals[i / 5][1] += 1;
+                sliceMinerals[i / 5][2] += 1;
+            }
+            
+            if(i % 5 == 4) {
+                picksNumber--;
+            }
+        }
+        
+        Arrays.sort(sliceMinerals, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[2] < o2[2] ? 1 : -1;
+            }
+        });
+        
+        for(int i = 0, pick = 0; i < sliceMinerals.length; i++) {
+            while(pick < 3 && picks[pick] == 0) {
+                pick++;
+            }
+            
+            if(pick == 3)
+                break;
+            
+            picks[pick]--;
+            answer += sliceMinerals[i][pick];
+        }
+        
+        return answer;
+    }
+}
