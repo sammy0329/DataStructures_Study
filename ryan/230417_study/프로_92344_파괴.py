@@ -10,8 +10,6 @@ i(n, m) = [1, 1000]
 skiil = [[type, r1, c1, r2, c2, degree],
         ...
         ]
-
-
 """
 from typing import List
 

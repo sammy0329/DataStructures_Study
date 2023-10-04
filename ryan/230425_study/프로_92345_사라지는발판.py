@@ -1,7 +1,7 @@
 """
 https://school.programmers.co.kr/learn/courses/30/lessons/92345
 
-1. 승자와 패자를 결정 - role 부여
+1. 승자와 패자를 결정 - role 부여 maxmin algorithm
 2. role에 따라 최선의 플레이: 도주 vs 추격
 """
 from typing import List

@@ -1,6 +1,8 @@
 def solution(s):
     answer = 0
+
     pair = {'[': ']', '{': '}', '(': ')'}
+
     for idx in range(len(s)):
         now_s = s[idx:] + s[:idx]
         stack = []
@@ -8,6 +10,7 @@ def solution(s):
         for each in now_s:
             if stack and stack[-1] in pair.keys() and pair[stack[-1]] == each:
                 stack.pop()
+
                 continue
 
             stack.append(each)
