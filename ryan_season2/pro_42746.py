@@ -7,14 +7,24 @@
 6 2 21 > 6 2 21
 6 2 23 > 6 23 2
 """
-# WIP, 231009
+# WIP, 231009, Theory Check
 
 
 def solution(numbers):
-    # numbers = [ for each in numbers]
+    numbers = [str(each) for each in numbers]
 
-    return numbers
+    numbers.sort(key=lambda x: x*3, reverse=True)
+
+    answer = ''
+    for each in numbers:
+        answer += each
+
+    if answer[0] == '0':
+        return '0'
+
+    return answer
 
 
-print(solution([6, 10, 2]))
-print(solution([3, 32, 34, 5, 9]))
+print(solution([6, 10, 2, 0]))
+print(solution([3, 30, 34, 5, 9]))
+print(solution([0, 0, 0, 0]))
