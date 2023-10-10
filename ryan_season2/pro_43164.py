@@ -12,42 +12,47 @@ tickets	return
 [["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]]	["ICN", "JFK", "HND", "IAD"]
 [["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]	["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
 """
-import copy
+from collections import defaultdict
 
 
-def visit(path, directed, num_tickets, results=[]):
+def visit(path, directed, num_tickets, results=None):
+    if results is not None:
+        return results
+
     if len(path) == num_tickets+1:
-        results.append(path)
+        results = path
+
         return results
 
     now = path[-1]
 
-    for next_step in directed[now]:
-        directed_ = copy.deepcopy(directed)
-        directed_[now].remove(next_step)
+    if sum(directed[now].values()) == 0:
+        return results
+
+    for next_step, cnt in sorted(directed[now].items()):
+        if cnt == 0:
+            continue
+
+        directed[now][next_step] -= 1
 
         path_ = path + [next_step]
 
-        visit(path_, directed_, num_tickets, results)
+        results = visit(path_, directed, num_tickets, results)
+        directed[now][next_step] += 1
 
     return results
 
 
 def solution(tickets):
-    directed = {}
-
+    directed = defaultdict(lambda: defaultdict(int))
     for dep, dest in tickets:
-        if directed.get(dep) is None:
-            directed[dep] = [dest]
-        else:
-            directed[dep].append(dest)
+        directed[dep][dest] += 1
 
-    a = visit(['ICN'], directed, len(tickets))
-    a.sort()
-    # print(a[0])
+    answer = visit(['ICN'], directed, len(tickets))
 
-    return a[0]
+    return answer
 
 
-# solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]])
+solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]])
 solution([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]])
+solution([["ICN", "JFK"], ["ICN", "AAD"], ["JFK", "ICN"]])
