@@ -7,7 +7,7 @@
 6 2 21 > 6 2 21
 6 2 23 > 6 23 2
 """
-# WIP, 231009, Theory Check
+# CHECK
 
 
 def solution(numbers):
