@@ -11,19 +11,25 @@ costs의 길이는 ((n-1) * n) / 2이하입니다.
 n	costs	return
 4	[[0,1,1],[0,2,2],[1,2,5],[1,3,1],[2,3,8]]	4
 """
+
+
+# Check: Call by Value issue, 확인
+
+
 from collections import defaultdict
 
 
-def updateParent(n, graph_):
+def updateParent(n, graph):
     parent = [i for i in range(n)]
     visited = [False for _ in range(n)]
+    stack = []
 
     for i in range(n):
         if visited[i]:
             continue
 
         visited[i] = True
-        stack = graph_[i]
+        stack += graph[i]
 
         while stack:
             now = stack.pop()
@@ -31,7 +37,7 @@ def updateParent(n, graph_):
                 parent[now] = i
                 visited[now] = True
 
-                stack += graph_[now]
+                stack += graph[now]
 
     return parent
 
@@ -40,29 +46,26 @@ def solution(n, costs):
     answer = 0
     buf = -1
 
-    graph = defaultdict(list)
+    info = defaultdict(list)
     parent = [i for i in range(n)]
     costs.sort(key=lambda x: x[2])
 
-    for _ in range(n-1):
+    for debug_idx in range(n-1):
         while True:
             buf += 1
             n1, n2, cost = costs[buf]
 
             if parent[n1] != parent[n2]:
                 break
-        print(f'before: {n1}', graph[n1])
-        graph[n1].append(n2)
 
-        print(graph[n1])
-        graph[n2].append(n1)
+        info[n2].append(n1)
+        info[n1].append(n2)
 
-        print(n1, n2, graph)
-        parent = updateParent(n, graph)
+        parent = updateParent(n, info)
         answer += cost
 
     return answer
 
 
-# print(solution(4, [[0,1,1],[0,2,2],[1,2,5],[1,3,1],[2,3,8]]))
+print(solution(4, [[0,1,1],[0,2,2],[1,2,5],[1,3,1],[2,3,8]]))
 print(solution(5, [[0, 1, 5], [1, 2, 3], [2, 3, 3], [3, 1, 2], [3, 0, 4], [2, 4, 6], [4, 0, 7]]))
